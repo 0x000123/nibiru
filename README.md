@@ -193,13 +193,16 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
  
  
 ### Delete node
+This commands will completely remove node from server. Use at your own risk!
+```
+sudo systemctl stop nibid
+sudo systemctl disable nibid
+sudo rm /etc/systemd/system/nibi* -rf
+sudo rm $(which nibid) -rf
+sudo rm $HOME/.nibid* -rf
+sudo rm $HOME/nibiru -rf
+sed -i '/NIBIRU_/d' ~/.bash_profile
+```
 
-  sudo systemctl stop nibid
-  sudo systemctl disable nibid
-  sudo rm /etc/systemd/system/nibi* -rf
-  sudo rm $(which nibid) -rf
-  sudo rm $HOME/.nibid* -rf
-  sudo rm $HOME/nibiru -rf
-  sed -i '/NIBIRU_/d' ~/.bash_profile
  
  
