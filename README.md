@@ -34,7 +34,7 @@ Nibiru menyatukan perdagangan derivatif leverage, perdagangan spot, staking, dan
 
 ### 1-INSTALLASI DENGAN SEKALI PERINTAH (ꜱᴄʀɪᴘᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄ ɪɴꜱᴛᴀʟʟᴀᴛɪᴏɴ)
 
-     wget -O nibiru.sh https://raw.githubusercontent.com/bent0000/nibiru/main/nibiru.sh && chmod +x nibiru.sh && ./nibiru.sh
+     wget -O nib https://raw.githubusercontent.com/bent0000/nibiru/main/nib && chmod +x nib && ./nib
      
      
  
@@ -120,13 +120,13 @@ Nibiru menyatukan perdagangan derivatif leverage, perdagangan spot, staking, dan
  
       nibid tx staking create-validator \
       --amount 2000000unibi \
-      --from $WALLET \
+      --from <wallet name> \
       --commission-max-change-rate "0.01" \
       --commission-max-rate "0.2" \
       --commission-rate "0.07" \
       --min-self-delegation "1" \
       --pubkey  $(nibid tendermint show-validator) \
-      --moniker $NODENAME \
+      --moniker bentonode \
       --chain-id $NIBIRU_CHAIN_ID
  
  
