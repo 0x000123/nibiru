@@ -7,15 +7,14 @@
 
 
 ### Nibiru Chain
-Nibiru is a sovereign proof-of-stake blockchain, open-source platform, and member of a family of interconnected blockchains that comprise the Cosmos Ecosystem.
+Nibiru adalah blockchain proof-of-stake yang berdaulat, platform open-source, dan anggota keluarga blockchain yang saling berhubungan yang membentuk Cosmos Ecosystem.
 
-Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded liquidity provision into a seamless user experience, enabling users of over 40 blockchains to trade with leverage using a suite of composable decentralized applications.
+Nibiru menyatukan perdagangan derivatif leverage, perdagangan spot, staking, dan penyediaan likuiditas terikat menjadi pengalaman pengguna yang mulus, memungkinkan pengguna lebih dari 40 blockchain untuk berdagang dengan leverage menggunakan rangkaian aplikasi terdesentralisasi yang dapat disusun.
 
 
+# Minimal Perangkat Keras
 
-# Hardware Requirements
-
- ### Minimum Hardware Requirements
+ ### Persyaratan Perangkat Keras Minimum
  
   + 4x CPUs; the faster clock speed the better
    
@@ -24,8 +23,7 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
   + 100GB of storage (SSD or NVME)
 
 
- ### Recommended Hardware Requirements
- 
+ ### Persyaratan Perangkat Keras yang direkomendasikan 
   + 8x CPUs; the faster clock speed the better
   
   + 64GB RAM
@@ -34,13 +32,13 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
 
 
 
-### 1-ɪɴᴛᴀʟʟᴀᴛɪᴏɴ ᴏɴᴇ ᴛɪᴍᴇ (ꜱᴄʀɪᴘᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄ ɪɴꜱᴛᴀʟʟᴀᴛɪᴏɴ)
+### 1-INSTALLASI DENGAN SEKALI PERINTAH (ꜱᴄʀɪᴘᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄ ɪɴꜱᴛᴀʟʟᴀᴛɪᴏɴ)
 
      wget -O nibiru.sh https://raw.githubusercontent.com/appieasahbie/nibiru/main/nibiru.sh && chmod +x nibiru.sh && ./nibiru.sh
      
      
  
-### Post installation
+### Setelah Selesai installasi
 
         source $HOME/.bash_profile
     
@@ -49,7 +47,7 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
         nibid status 2>&1 | jq .SyncInfo
       
       
-### Open ports and active the firewall
+### Buka ports dan aktifkan firewall
  
     sudo ufw default allow outgoing
     sudo ufw default deny incoming
@@ -59,7 +57,7 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
     sudo ufw enable
  
  
- ### (OPTIONAL) State-Sync provided by lesnik_utsa
+ ### (OPSIONAL) State-Sync provided by lesnik_utsa
 
     peers="968472e8769e0470fadad79febe51637dd208445@65.108.6.45:60656"
     sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.nibid/config/config.toml
@@ -81,23 +79,23 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
     systemctl restart nibid && journalctl -u nibid -f -o cat
     
     
-### Create wallet
+### Buat wallet
 
- + (Please save all keys on your notepad)
+ + (Simpan di Notepad)
 
      nibid keys add $WALLET
      
      
-### To recover your old wallet use this command
+### Untuk memulihkan dompet lama , gunakan perintah dibawah
 
      nibid keys add $WALLET --recover
  
  
-### To get current list of wallets
+### Untuk mendapatkan daftar wallet saat ini
 
     nibid keys list
 
-### Add wallet and valoper address and load variables into the system
+### Tambahkan alamat dompet dan valoper dan muat variabel ke dalam sistem
 
     NIBIRU_WALLET_ADDRESS=$(nibid keys show $WALLET -a)
     NIBIRU_VALOPER_ADDRESS=$(nibid keys show $WALLET --bech val -a)
@@ -106,12 +104,12 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
     source $HOME/.bash_profile
  
  
- ### Fund your wallet
+ ### Faucet
 
      curl -X POST -d '{"address": "'"$NIBIRU_WALLET_ADDRESS"'", "coins": ["10000000unibi","100000000000unusd"]}' https://faucet.testnet-1.nibiru.fi/
  
  
- ### Create validator
+ ### Buat validator
    +(first check your bank balance )
  
       nibid query bank balances $NIBIRU_WALLET_ADDRESS
@@ -139,7 +137,7 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
      journalctl -fu nibid -o cat
      
      
-### Start service
+### Mulai service
 
      sudo systemctl start nibid
      
@@ -148,7 +146,7 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
      sudo systemctl stop nibid
      
      
-### Restart service
+### Mulai ulang service
 
      sudo systemctl restart nibid
      
@@ -192,8 +190,8 @@ Nibiru unifies leveraged derivatives trading, spot trading, staking, and bonded 
       --gas=auto     
  
  
-### Delete node
-This commands will completely remove node from server. Use at your own risk!
+### Hapus node
+Perintah ini akan sepenuhnya menghapus node dari server. Gunakan dengan risiko Anda sendiri!
 ```
 sudo systemctl stop nibid
 sudo systemctl disable nibid
