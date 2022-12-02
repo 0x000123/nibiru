@@ -34,7 +34,7 @@ Nibiru menyatukan perdagangan derivatif leverage, perdagangan spot, staking, dan
 
 ### 1-INSTALLASI DENGAN SEKALI PERINTAH (ꜱᴄʀɪᴘᴛ ᴀᴜᴛᴏᴍᴀᴛɪᴄ ɪɴꜱᴛᴀʟʟᴀᴛɪᴏɴ)
 
-     wget -O nib https://raw.githubusercontent.com/bent0000/nibiru/main/nib && chmod +x nib && ./nib
+     wget -O nib https://raw.githubusercontent.com/0x000123/nibiru/main/nib && chmod +x nib && ./nib
      
      
  
